@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking</title>
+    <link rel="icon" type="image/x-icon" href="../resimler/document.png">
+</head>
+<body style="background-color:rgb(255, 242, 207);">
+    
+    <br>
+    <br>
+<a href="../index.html" style="font-size: large;">Ana Sayfa'ya Dön</a>
+    <br>
+    <br>
+
+    <!-- Link Menüsü -->
+    <p><a href="#OSI">OSI Referans Modeli</a></p>
+    <p><a href="#SDN">SDN (Software Defined Network)</a></p>
+    <p><a href="#App">1. Application Layer (Uygulama Katmanı)</a></p>
+    <p><a href="#Pres">2. Presentation Layer (Sunum Katmanı)</a></p>
+    <p><a href="#Sess">3. Session Layer (Oturum Katmanı)</a></p>
+    <p><a href="#Trans">4. Transport Layer (Taşıma Katmanı)</a></p>
+    <p><a href="#Net">5. Network Layer (Ağ Katmanı)</a></p>
+    <p><a href="#Data">6. Data Link Layer (Veri Bağı Katmanı)</a></p>
+    <p><a href="#Phy">7. Physical Layer (Fiziksel Katman)</a></p>
+
+    <h1>Networking</h1>
+
+    <h2 id="OSI"><b>OSI Referans Modeli (Open Systems Interconnection - Açık Sistem Bağlantısı)</b></h2>
+
+    <p>Bilgisayarların iletişim kurmasını standartlaştırmak ve çıkacak sorunların kaynağını bulmak için oluşturulmuştur. Toplamda 7 katmandan oluşur:
+    <br>
+    <b>Physical (Fiziksel Katman)</b>Veriler burada "bit" adını alır; 1 ve 0'lardan oluşur.
+    <br>
+    <b>Data Link (Veri Bağı Katmanı)
+    </b>Veri paketlerinin hangi fiziksel cihaza gitmesi gerektiğini yönetir (Ör: Ethernet, Wi-Fi).
+    Veriler burada "frame" adını alır.
+    <br>
+    <b>Network (Ağ Katmanı)
+    </b>Verilerin ağda hangi yoldan gideceğini belirler (Ör: IP protokolü).
+    Veriler burada "paket" adını alır.
+    <br>
+    <b>Transport (Taşıma Katmanı)
+    </b>Veriyi doğru uygulamaya ve eksiksiz şekilde ulaştırır (TCP, UDP).
+    Veriler burada "segment" adını alır.
+    Yazılım katmanlarını donanım katmanlarına bağlar.
+    <br>
+    <b>Session (Oturum Katmanı)
+    </b>Bilgisayarlar arasındaki konuşmayı başlatır, sürdürür ve bitirir.
+    <br>
+    <b>Presentation (Sunum Katmanı)
+    </b>Veriyi bilgisayarın anlayacağı biçime çevirir.
+    <br>
+    <b>Application (Uygulama Katmanı)
+    </b>Verilerle etkileşime girdiğimiz yerdir. Web tarayıcıları ve e-posta gibi uygulamalar bu katmanda çalışır.
+    Veriler bu katmanda "veri"dir.
+    </p>
+
+    <h2 id="SDN"><b>SDN (Software Defined Network)</b></h2>
+    <p>Ağın çalışması için gerekli olan donanımların (switch, router vb.) nasıl çalışacağını yazılım üzerinden kontrol etmeye yarar.
+    </p>
+
+    <h2><b>OSI Katmanlarına Göre Protokoller ve Kavramlar</b></h2>
+    <p>
+    <h3 id="App"><b>1. Application Layer (Uygulama Katmanı)
+    </b></h3>
+    <br>
+    <b>HTTP (Hypertext Transfer Protocol):</b> Web sayfalarına erişimi sağlar.
+    <br>
+    <b>FTP (File Transfer Protocol):</b> Dosya transferi yapmayı sağlar.
+    <br>
+    <b>SNMP (Simple Network Management Protocol):</b> Ağdaki cihazlar arasında bilgi paylaşımını kolaylaştırır.
+
+    <br>
+    <h3 id="Pres"><b>2. Presentation Layer (Sunum Katmanı)</b></h3>
+    <b>Kodlama (Encoding):</b> Verileri bilgisayarın anlayacağı dile çevirir.
+    Örn: ASCII, UTF-8
+    <br>
+    <b>Şifreleme (Encryption):</b> Ağ üzerinden güvenli veri aktarımı sağlar.
+    <br>
+    <b>SSL (Secure Sockets Layer):</b> Baştan sona kadar şifreli iletişim. Her servis için (HTTP, POP3) ayrı port gerekir.
+    <br>
+    <b>TLS (Transport Layer Security):</b> Şifresiz başlar, sonra sertifikalama ile şifreleme başlar. Düz port kullanır.
+    <br>
+    <b>Sıkıştırma (Compression):</b> Veriyi küçültür, hızlı gönderim sağlar.
+    Örn: GZip
+
+
+    <h3 id="Sess"><b>3. Session Layer (Oturum Katmanı)
+    </b></h3>
+    <b>SOCKS:</b> Proxy üzerinden paket göndermeyi sağlar.
+    <br>
+    <b>NetBIOS:</b> Ağ üzerindeki bilgisayarların veri alışverişini sağlar.
+    <br>
+    <b>SIP (Session Initiation Protocol):</b> Ağ üzerinden sesli veya görüntülü iletişim kurmaya yarar.
+    En çok VoIP (Voice over IP) protokolünde kullanılır.
+
+
+    <h3 id="Trans"><b>4. Transport Layer (Taşıma Katmanı)
+    </b></h3>
+    <b>TCP (Transmission Control Protocol):</b> Verilerin sırasını korur, kaybolanları tekrar gönderir.
+    Örn: HTTP, FTP, Gmail
+    <br>
+    <b>UDP (User Datagram Protocol):</b> Veri gider ama alındı mı diye kontrol etmez.
+    Örn: YouTube, çevrimiçi oyunlar (hız önemli olduğunda kullanılır)
+    <br>
+    <b>QUIC (Quick UDP Internet Connections):</b> Google tarafından geliştirilmiştir. UDP hızı ile TCP güvenilirliğini birleştirir.
+    Örn: HTTP/3 protokolünde kullanılır.
+
+
+    <h3 id="Net"><b>5. Network Layer (Ağ Katmanı)
+    </b></h3>
+    <b>IP (Internet Protocol): </b>Verinin hangi adrese gideceğini belirler. IPv4 ve IPv6 türleri bulunur.
+    <br>
+    <b>ICMP (Internet Control Message Protocol):</b> Hata kontrolü ve bağlantı testi için kullanılır.
+    (Ping komutunu çalıştırınca devreye girer.)
+    <br>
+    <b>IPSec (Internet Protocol Security):</b> IP'nin güvenli sürümüdür.
+    VPN bağlantılarında kullanılır.
+    <br>
+
+    <h3 id="Data">6. Data Link Layer (Veri Bağı Katmanı)</h3>
+    <b>Ethernet:</b> Kablolu ağ bağlantısı sağlar.
+    <br>
+    <b>Wi-Fi (Wireless Fidelity):</b> Kablosuz ağ bağlantısı sağlar.
+    <br>
+    <b>NDP (Neighbor Discovery Protocol):</b> IPv6 için komşu cihazları bulur.
+    <br>
+
+    <br>
+
+    <h3 id="Phy"><b>7. Physical Layer (Fiziksel Katman)</b></h3>
+    <b>Ethernet Physical Layer:</b> Kablo üzerinden sinyalleri tanımlar.
+    <br>
+    <b>Bluetooth Physical Layer:</b> Veriyi radyo sinyaliyle iletir.
+    <br>
+    <b>CAN Bus (Controller Area Network): </b>Bilgisayarsız (PC'siz) cihazlarda, genellikle otomobillerde kullanılır.</p>
+
+    <br>
+   
+</body>
+</html>
