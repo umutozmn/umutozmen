@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Layer</title>
+   <link rel="icon" type="image/x-icon" href="../resimler/document.png">
+
+</head>
+<body style="background-color:rgb(255, 242, 207);">
+    
+
+<br>
+<br>
+<br>
+<br>
+
+<p><a href="#IP">IP (Internet Protocol)</a></p>
+<p><a href="#Subnet">Subnet (Alt Ağ)</a></p>
+<p><a href="#Netmask">Netmask (Ağ Maskesi)</a></p>
+<p><a href="#Notlar">Notlar</a></p>
+<p><a href="#Rfc">RFC1918</a></p>
+<p><a href="#Özel">Özel Adresler</a></p>
+<p><a href="#Cihaz">Cihazlar</a></p>
+<p><a href="#Nat">NAT (Network Address Translation-Ağ Adresi Çevirisi)</a></p>
+<p><a href="#V6">IPv6 - IP Version 6</a></p>
+<p><a href="#ICMP">ICMP (Internet Control Message Protokol)</a></p>
+<p><a href="#Tracer">Traceroute</a></p>
+<p><a href="#DNS">DNS (Domain Name System)</a></p>
+<p><a href="#VPN">VPN (Virtual Private Network-Sanal Özel Ağ)</a></p>
+
+<h1><b>Network Layer</b></h1>
+<p>
+<h2 id="IP"><b>IP (Internet Protocol)</b></h2>
+Bilgisayarların internette veya bir ağ içinde birbirini tanıyıp iletişim kurmasını sağlayan bir protokoldür.
+<br>
+Her cihazın, tıpkı bir kimlik numarası gibi, kendine özgü bir IP adresi vardır. Bu adresler sayesinde veriler doğru yerlere ulaşır.
+<br>
+IP, yalnızca fiziksel cihazlar arasında değil, farklı ağlar arasında da iletişim kurmak için kullanılır (örneğin, kendi Wi-Fi ağın ile başka bir ülkenin sunucusu arasındaki iletişimde).
+<br>
+Yalnızca veriyi iletmez; verinin nasıl, nereye ve kimden gittiği bilgilerini de içerir. Bu bilgilere Header (başlık) denir.
+<br>
+İki sürümü vardır:
+IPv4 (IP Version 4)
+IPv6 (IP Version 6)
+</p>
+
+
+<h2 id="Subnet"><b>Subnet (Alt Ağ)</b></h2>
+<p>IP ağlarının farklı bölümlere ayrılmasına "alt ağ" (subnet) denir. Bir ağın habitatı gibi düşünülebilir. Belirli bir IP adresi aralığını kullanan, birbirine doğrudan bağlı cihazların oluşturduğu alt gruplardır.
+<br>
+Örnek:
+<br>
+192.168.0.0 → Tüm ağ (network)
+<br>
+192.168.0.1 → 1. cihaz (örneğin modem)
+<br>
+192.168.0.2 → 2. cihaz (örneğin bilgisayar)</p>
+
+
+<h2 id="Netmask"><b>Netmask (Ağ Maskesi)</b></h2>
+<p>IP adresinin hangi kısmının “ağ”, hangi kısmının “cihaz” olduğunu belirler. Ondalık sayılarla veya "/" ile gösterilir. Buna Slash Notasyonu denir.
+        <br>
+Örnek:
+<br>
+192.168.0.1/24
+<br>
+/24: İlk 24 bit “ağ” kısmını gösterir.
+<br>
+Kalan 8 bit “cihaz” kısmını gösterir.
+<br>
+Netmask olarak bu: 255.255.255.0</p>
+
+<h2 id="Notlar"><b>Notlar</b></h2>
+<p>
+Bazı IP ağları yalnızca belirli türdeki veri trafiği için ayrılmıştır.
+<br>
+Bazı IP’ler iç ağlar (private) içindir ve ev veya şirket içinde kullanılır.
+<br>
+Bazı IP’ler ise genel (public) internet için kullanılır.
+<br>
+<b id="Rfc">RFC1918:</b> İnternette yalnızca özel ağlarda kullanılan IP adreslerini tanımlayan bir kuraldır. Evinizdeki veya şirketinizdeki özel ağlar için ayrılmıştır ve doğrudan internet üzerinde kullanılmazlar.</p>
+
+<h2 id="Özel"> <b>Özel Adresler</b> </h2>
+<p>
+        <b>Broadcast Address (Yayın Adresi):</b> O ağın son IP adresidir (ör. 192.168.0.255). Ağdaki tüm cihazlara aynı anda veri göndermek için tasarlanmıştır; buna veriyi yayınlamak denir.
+        <br>
+<b>Localhost:</b> Cihazların kendi kendisine veri göndermesi gerektiğinde kullanılan özel adrestir (genellikle 127.0.0.1).</p>
+
+<h2 id="Cihaz"> <b>Cihazlar</b></h2>
+<p><b>Router (Yönlendirici):</b>
+Veriyi farklı ağlar arasında yönlendirir.
+IP adreslerine göre yönlendirme yapar.
+Ağ katmanında (Katman 3) yer alır.
+<br>
+<b>Switch (Anahtar):</b>
+Veriyi aynı ağın içinde cihazdan cihaza iletir.
+MAC adreslerine göre yönlendirme yapar.
+<br>
+<b>MAC Adresi (Media Access Control Address):</b> Bir ağdaki her cihazın ağ kartına yazılmış benzersiz adreslerdir. Ağın içindeki verilerin hangi cihaza gideceğini belirlemek için kullanılır.
+Veri Bağlantı Katmanında (Katman 2) yer alır.</p>
+
+<p><b>Source Address (Kaynak Adresi):</b> Paketin geldiği cihazın IP adresini içerir.
+        <br>
+<b>Destination Address (Hedef Adresi):</b> Ulaşması gereken alıcının IP adresini içerir.
+<br>
+<b>Version:</b> IP'nin hangi sürümünün kullanıldığını gösterir (IPv4 veya IPv6).
+<br>
+<b>Total Length:</b> Paketin boyut bilgisini içerir.
+<br>
+<b>TTL (Time to Live):</b> Paketin ağda kaç yönlendirici üzerinden geçebileceğini gösteren sayaçtır.
+<br>
+<b>Protocol:</b> Hangi üst katman protokolünün kullanıldığını gösterir (TCP/UDP).</p>
+
+<p id="Nat"><b><h3>NAT (Network Address Translation-Ağ Adresi Çevirisi) Tanım: </h3></b>NAT, bir sistemin genel IP adresli bağlantılarını bir iç IP (RFC 1918) adresli bağlantıya yönlendirmesini veya tersini yapmasına denir. Bunu yapan sistemler Firewall ve Routerdır.
+
+İçerideki iç ağlarla (RFC 1918), dışarıdan gelen IP adresleri arasındaki iletişimi sağlar bir nevi arabuluculuk yapar. Ve içerideki birçok cihazı ağ trafiğide tek bir dış kimlikle (IP Adresi) temsil eder. NAT Ağ Yöneticilerine Avantaj Sağlar;
+İç ağlarda kullanılan çok sayıda RFC 1918 (özel/dahili) adresi, dış dünyada tek bir genel (public) IP adresi üzerinden temsil edilir. Bu durum, mühendislerin, genel IP adresi kullanmadan iç ağlarını istedikleri kadar büyütmelerine (ölçeklendirmelerine) olanak tanır.
+İç ağdaki (LAN) cihazların IP adresleri değiştirilse bile, NAT'ın dışarıya dönük genel IP adresi değişmez. Bu durum, ağ altyapısında dış dünyayı etkilemeden kolayca değişiklik yapma esnekliği sağlar.</p>
+
+<h2 id="V6"><b>IPv6 - IP Version 6</b></h2>
+<p>IPv4 32 bittir. IPv6 ise 128 bittir.
+
+2a00:1450:400f:080a:0000:0000:0000:200e tam halidir.
+
+Local Host IPv4'te 127.0.0.1 şeklindeydi. IPv6'da ise ::1 veya :: şeklindedir. image
+
+IPv4'teki Protokol yerini burada Next Header kısmı alır ve burada paketin içinde hangi protokolün (TCP-UDP) geldiği yer alır.
+Hop Limit: IPv4'teki TTL (Time TO Live) yerini alır.
+Ping komutu aracılığıyla IPv4 ile IPv6 arasında geçiş yapılabilir.
+
+ping -6 google.com: Alan adının IPv6 adresini sorgular ve iletişim kurar.
+ping -4 google.com: Alan adının IPv4 adresini sorgular ve iletişim kurar.</p>
+
+<h2 id="ICMP"><b>ICMP (Internet Control Message Protokol):</b></h2>
+
+<p>IP ağlarındaki hataları bildirmek ve ağ teşhisi için bilgi alışverişi sağlayan bir protokoldür.
+Saldırganlar, Ping Sweep (Ping Taraması) metodunu çok kullanır.</p>
+
+<h2 id="Tracer"><b>Traceroute</b></h2>
+<p>Linux ve macOS karşılığıdır. Windows karşılığı Tracert'dir.
+İnternetteki veriler birçok routerdan geçer. Traceoute, bir paketin alıcıdan gelirken kaç routerdan geçtiğini listeler ve kaç hop(atlama) yaptığını bunların gecikme süresini görmeyi sağlar.
+İlk yönlendirici paketi aldığında TTL (Time to Live)'den 1 düşürülür 0 olur ve paket silinir daha sonra router bilgisayara "ICMP Time Exceeded(süre doldu)" mesajı yollar ve böylece ilk yönlendirici fark edilmiş olunur. Bu sefer de PC TTL'yi 2 yapar ve o da 2.router'a gider. TTL her seferinde 1 artar.</p>
+
+<h2 id="DNS"><b>DNS (Domain Name System)</b></h2>
+<p>Arama yaparken site adı yazarsın, DNS bunu IP adresine çevirir.
+Eğer bu arama daha önce yapılmışsa işlem hızlı gerçekleşir
+En son işlemde Authoritative (yetkili) DNS sunucusunu bulunur. Bu alan adının en doğru cevabını veren DNS sunucusudur.
+TTL (Tİme to Live), DNS cevabının ne kadar süre önbellekte saklanacağını gösterir.
+Linuxta DNS sorgulama: dig w3schools.com ///// dig (Domain Information Groper- Alanadı Bilgisi Araştırıcısı)
+Windowsta nslookup w3schools.com ///// nslookup (Name Server Lookup)
+Bir alan adının en doğru cevabını bulmak için;
+Linuxta: dig -t SOA google.com ///// SOA (Start of Authority)
+Windowsta: nslookup -type=SOA google.com
+DHCP (Dynamic Host Configuration Protocol-Dinamik Ana Bilgisayar Yapılandırma Protokolü)
+
+Yeni bir cihazı ağa bağladığınızda o cihazın internete çıkabilmesi için gereken tüm ayarları otomatik olarak almasını sağlayan bir protokoldür.
+Windowsta DHCP kullanılıyor mu öğrenmek için ipconfig/all yazılır terminale.</p>
+
+<h2 id="VPN"><b>VPN (Virtual Private Network-Sanal Özel Ağ)</b></h2>
+<p>VPN, iki sistemin şifreli iletişim biçimleri kurmasını sağlayarak, ağ trafiğinin iletim sırasında şifrelenmesini mümkün kılan sistemdir.
+VPN'nin sağladığı 3 önemli fayda vardır. (Şifreleme, IP Maskeleme, Uzaktan Erişim)</p>
+
+<b>Şifreleme:</b> İstemci(siz) ve VPN sunucusu arasında şifreli bir "tünel" oluşturur. Bu tünelden geçen veriler, İSS (Internet Servis Sağlayısı) , Wi-Fi operatörü veya siber korsanlar tarafından okunamaz.
+
+<b>IP Maskeleme:</b> İnternetteki siteler ve hizmetler sizin gerçek IP adresinizi değil VPN sunucusunun IP adresini görür.
+
+<b>Uzaktan Erişim:</b>Çalışanların dışarıdan, şirket kaynaklarına güvenli ve yetkili bir şekilde erişmesini sağlar.
+<br>
+<br>
+<br>
+<br>
+        <a href="../index.html" style="font-size: large; color: red;">Ana Sayfa'ya Dön</a> <br> <br>
+
+
+</body>
+</html>
